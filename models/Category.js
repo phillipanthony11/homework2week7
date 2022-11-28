@@ -1,6 +1,8 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, DECIMAL, NUMERIC } = require("sequelize");
 
-const sequelize = require('../config/connection.js');
+const sequelize = require("../config/connection.js");
+const Product = require("./Product.js");
+const Tag = require("./Tag.js");
 
 class Category extends Model {}
 
@@ -17,12 +19,13 @@ Category.init(
       allowNull: false,
     },
   },
+
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'category',
+    modelName: "category",
   }
 );
 
